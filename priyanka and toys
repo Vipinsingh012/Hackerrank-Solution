@@ -1,0 +1,23 @@
+int compare(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
+}
+
+int toys(int w[], int n) {
+  
+    qsort(w, n, sizeof(int), compare);
+
+    int containers = 0;
+    int i = 0;
+
+    while (i < n) {
+        int minWeight = w[i];
+        containers++;
+
+
+        while (i < n && w[i] <= minWeight + 4) {
+            i++;
+        }
+    }
+
+    return containers;
+}
